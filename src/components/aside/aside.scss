@@ -1,0 +1,29 @@
+@use "../../styles/config" as conf;
+
+
+aside{
+    grid-area: aside;
+    background-color: conf.$primary-color;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    color:white;
+    gap:20px;
+}
+
+aside a img{
+    width: 10%;
+}
+
+aside button{
+    align-self: self-start;
+    padding: 30px;
+    
+}
+aside a {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap:20px;
+    padding-left: 30px;
+}

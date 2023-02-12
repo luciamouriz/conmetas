@@ -1,0 +1,23 @@
+:root {
+    --primary-color: #805EAB;
+    --primary-color-medium: #9296CA;
+    --primary-color-light: #F2EDFF;
+    --secondary-color: #71D5D1;
+    --secondary-color-light: #E5FFFE;
+    --gray-dark: #9d9d9d;
+    --gray-light: #EEEEEE;
+    --color-error: #AB5E5E;
+    --white-color: #FFFFFF;
+    --black-color: #000000;
+    --font-montserrat: 'Montserrat';
+    --font-montserratAlter: 'Montserrat Alternate';
+}
+
+
+$primary-color: var(--primary-color);
+$secondary-color: var(--secondary-color);
+$white: var(--white-color);
+$black: var(--black-color);
+
+$montserrat: var(--font-montserrat);
+$montserratAlter: var(--font-montserratAlter);

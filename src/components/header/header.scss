@@ -1,0 +1,19 @@
+header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em 3em;
+    box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.07);
+}
+
+.header-buttons {
+    display: flex;
+    gap: 30px;
+
+    button{
+        background-color: transparent;
+        border: 0;
+        border-radius: 3px;
+    }
+}
