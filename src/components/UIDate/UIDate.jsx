@@ -45,11 +45,20 @@ export const UIDate = () => {
 
   return (
     <div className="uidate-wrapper">
-      <p>CALENDARIO / <button onClick={handleClickUIDate}>{id != "" ? `${months[id]} ${inputValue}` : `${months[monthToday]} ${yearToday}`}</button></p>
+      <p className="title-calendar">CALENDARIO / <button onClick={handleClickUIDate}>{id != "" ? `${months[id]} ${inputValue}` : `${months[monthToday]} ${yearToday}`}</button></p>
+      <div className="week-calendar">
+        <p>Lunes</p>
+        <p>Martes</p>
+        <p>Miércoles</p>
+        <p>Jueves</p>
+        <p>Viernes</p>
+        <p>Sábado</p>
+        <p>Domingo</p>
+      </div>
       {showUIDate &&
         <div className="select-date">
           <p ref={validation}>Selecciona una fecha</p>
-          <input type="text" value={inputValue} onChange={handleInputChange} onKeyPress={handleInputChange} placeholder="Año"/>
+          <input type="text" value={inputValue} onChange={handleInputChange} onKeyPress={handleInputChange} placeholder="Año" />
 
           <div className="buttons-months">
             {months.map((month, index) => (

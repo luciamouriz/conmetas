@@ -4,7 +4,9 @@ import { CardDay } from "./day/CardDay";
 
 export const Calendar = ({ month, year }) => {
 
-    let array = [];
+
+    let days = [];
+
     //Buscar dia de la semana del dia 1 del mes:
     let firstDayMonth = new Date(year, month, "1") //buscar primer día del mes
     let firstWeek = firstDayMonth.getDay() //buscar día de la semana del día 1
@@ -22,25 +24,20 @@ export const Calendar = ({ month, year }) => {
 
         let myDay = dayMonth.getDate()
 
-        array[i] = myDay;
+        days[i] = myDay;
         //pasar al siguiente día
         myDay = myDay + 1;
         dayMonth.setDate(myDay);
 
+
     }
 
 
-
     return (
-        <>
-            <div className="calendar-wrapper">
-                {array.map((day, index) => (
-                    <CardDay key={index} day={day} />
-                ))}
 
-            </div>
-        </>
-
+        <div className="calendar-wrapper">
+            <CardDay days={days} month={month}/>
+        </div>
 
     )
 }

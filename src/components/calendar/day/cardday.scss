@@ -1,4 +1,6 @@
-.card-day {
+@use "../../../styles/config.scss" as conf;
+
+.card-day-on {
     width: 210px;
     height: 210px;
     background: #FFFFFF;
@@ -17,4 +19,32 @@
     .button-add {
         margin: 15px;
     }
+}
+
+.card-day-off {
+    width: 210px;
+    height: 210px;
+    background: conf.$gray-light;
+    border: 0.5px solid #9D9D9D;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.14);
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: space-between;
+
+    .num-day {
+        font-size: 27px;
+        margin: 10px;
+    }
+
+    .button-add {
+        margin: 15px;
+        background-color: conf.$gray-dark;
+    }
+}
+
+
+.active{
+    background-color: conf.$primary-color-light;
+    border: 1px solid conf.$primary-color;
 }
