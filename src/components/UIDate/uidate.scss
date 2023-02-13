@@ -1,4 +1,83 @@
-.active{
+@use "../../styles/config.scss" as conf;
+
+
+.active {
     background-color: red;
 }
 
+.uidate-wrapper {
+    position: relative;
+    padding: 30px;
+
+    p button {
+        font-family: conf.$montserratAlter;
+        font-size: 25px;
+        text-transform: uppercase;
+        background-color: conf.$primary-color;
+        color: conf.$white;
+        font-style: normal;
+        padding: 10px;
+        border-radius: 5px;
+        margin-left: 10px;
+        margin-bottom: 50px;
+        border:1px solid;
+        cursor: pointer;
+
+        @include conf.hover-button;
+    }
+
+    p {
+        font-size: 20px;
+        font-family: conf.$montserratAlter;
+    }
+
+
+    .select-date {
+        position: absolute;
+        background-color: conf.$white;
+        box-shadow: conf.$shadow;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+
+
+        input {
+
+            width: 20%;
+            height: 50px;
+            font-size: 30px;
+            text-align: center;
+            border-radius: 3px;
+            border-color: conf.$primary-color;
+
+            &:focus {
+                outline: 0;
+                background-color: conf.$primary-color-light;
+            }
+        }
+
+
+        .buttons-months {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+
+            button {
+                padding: 20px;
+                background-color: conf.$primary-color;
+                color: conf.$white;
+                font-size: 16px;
+                border-radius: 3px;
+                border: 1px solid;
+                text-transform: uppercase;
+                cursor: pointer;
+
+                @include conf.hover-button;
+            }
+
+        }
+
+    }
+}

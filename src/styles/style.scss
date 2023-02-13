@@ -1,7 +1,8 @@
 @forward "./general";
 @forward "./config";
-@forward "../components/calendar/day/day";
-@forward "../components/buttons/add/buttonadd";
-@forward "../components/calendar/calendar";
 @forward "../components/header/header";
 @forward "../components/aside/aside";
+@forward "../components/UIDate/uidate.scss";
+@forward "../components/calendar/day/cardday";
+@forward "../components/buttons/add/buttonadd";
+@forward "../components/calendar/calendar";

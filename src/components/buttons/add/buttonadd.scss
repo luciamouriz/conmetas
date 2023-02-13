@@ -1,9 +1,14 @@
-.btn-add {
-    background-color: #805EAB;
-    color: white;
+
+@use "../../../styles/config.scss" as conf;
+
+.button-add {
+    background-color:conf.$primary-color;
+    color: conf.$white;
     width: 30px;
     height: 30px;
     border: 0;
     font-size: 25px;
     border-radius: 3px;
+    cursor: pointer;
+    @include conf.hover-button;
 }

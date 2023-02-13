@@ -1,6 +1,6 @@
 
 export const ButtonAdd = () => {
   return (
-    <button className="btn-add">+</button>
+    <button className="button-add">+</button>
   )
 }

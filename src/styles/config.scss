@@ -9,15 +9,34 @@
     --color-error: #AB5E5E;
     --white-color: #FFFFFF;
     --black-color: #000000;
+    --shadow: 0px 4px 8px rgba(0, 0, 0, 0.14);
     --font-montserrat: 'Montserrat';
-    --font-montserratAlter: 'Montserrat Alternate';
+    --font-montserratAlter: 'Montserrat Alternates';
 }
 
-
+/*Colors*/
 $primary-color: var(--primary-color);
+$primary-color-medium : var(--primary-color-medium);
+$primary-color-light : var(--primary-color-light);
 $secondary-color: var(--secondary-color);
 $white: var(--white-color);
 $black: var(--black-color);
 
+/*Shadows*/
+$shadow: var(--shadow);
+
+/*Fonts*/
 $montserrat: var(--font-montserrat);
 $montserratAlter: var(--font-montserratAlter);
+
+
+
+@mixin hover-button {
+
+    &:hover {
+        background-color: var(--primary-color-light);
+        border: var(--primary-color) 1px solid;
+        color: var(--primary-color);
+    }
+
+}

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { Calendar } from "../calendar/Calendar"
 
 export const UIDate = () => {
@@ -12,8 +12,9 @@ export const UIDate = () => {
 
   const [showCalendar, setShowCalendar] = useState(false);
   const [showUIDate, setShowUIDate] = useState(false);
-  const [inputValue, setInputValue] = useState([]);
+  const [inputValue, setInputValue] = useState(yearToday);
   const [id, setID] = useState('');
+  const validation = useRef(null)
 
 
   const handleInputChange = event => {
@@ -24,17 +25,11 @@ export const UIDate = () => {
       setInputValue(event.target.value);
     }
 
-
   };
 
   const handleClickMonth = event => {
-    /* Array.from(document.getElementsByTagName('button')).map(elem => elem.classList.remove('active'))
-    event.currentTarget.classList.add('active'); */
-
-    if (inputValue.length === 0) {
-      alert("falta el año")
-    } else if (Number(inputValue) < yearToday || Number(inputValue) > 2119) {
-      alert('Año actual hasta 2119')
+    if (inputValue.length === 0 || Number(inputValue) < yearToday || Number(inputValue) > 2119) {
+      validation.current.innerText = "Escribe un año entre año actual y 2119"
     } else {
       setID(event.currentTarget.id)
       setShowCalendar(true)
@@ -42,26 +37,30 @@ export const UIDate = () => {
     }
   }
 
-  const handleClickUIDate = event => {
+
+  const handleClickUIDate = () => {
     setShowUIDate(true)
   }
 
+
   return (
-    <>
-      <p>CALENDARIO / <button onClick={handleClickUIDate}>{id != "" ? months[id] : months[monthToday]}</button></p>
-
+    <div className="uidate-wrapper">
+      <p>CALENDARIO / <button onClick={handleClickUIDate}>{id != "" ? `${months[id]} ${inputValue}` : `${months[monthToday]} ${yearToday}`}</button></p>
       {showUIDate &&
-        <div className="uidate-wrapper">
-          <input type="text" value={inputValue} onChange={handleInputChange} onKeyPress={handleInputChange} />
-          {months.map((month, index) => (
-            <button id={index} onClick={handleClickMonth}>{month}</button>
-          ))}
+        <div className="select-date">
+          <p ref={validation}>Selecciona una fecha</p>
+          <input type="text" value={inputValue} onChange={handleInputChange} onKeyPress={handleInputChange} placeholder="Año"/>
 
+          <div className="buttons-months">
+            {months.map((month, index) => (
+              <button id={index} onClick={handleClickMonth}>{month}</button>
+            ))}
+          </div>
         </div>
-      }
 
+      }
       {showCalendar == true && inputValue != "" ? <Calendar month={id} year={inputValue} /> : <Calendar month={monthToday} year={yearToday} />}
-    </>
+    </div>
 
   )
 }

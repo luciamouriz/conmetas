@@ -1,5 +1,5 @@
 
-import { Day } from "./day/Day";
+import { CardDay } from "./day/CardDay";
 
 
 export const Calendar = ({ month, year }) => {
@@ -35,8 +35,7 @@ export const Calendar = ({ month, year }) => {
         <>
             <div className="calendar-wrapper">
                 {array.map((day, index) => (
-                    <Day key={index} day={day} />
-
+                    <CardDay key={index} day={day} />
                 ))}
 
             </div>
