@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Calendar } from "../calendar/grid/Calendar"
+import { Calendar } from "../calendar/Calendar"
 
 export const UIDate = () => {
 
@@ -14,10 +14,17 @@ export const UIDate = () => {
   const [showUIDate, setShowUIDate] = useState(false);
   const [inputValue, setInputValue] = useState([]);
   const [id, setID] = useState('');
- 
+
 
   const handleInputChange = event => {
-    setInputValue(event.target.value);
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57) || event.target.value.length >= 5) {
+      event.preventDefault();
+    } else {
+      setInputValue(event.target.value);
+    }
+
+
   };
 
   const handleClickMonth = event => {
@@ -26,6 +33,8 @@ export const UIDate = () => {
 
     if (inputValue.length === 0) {
       alert("falta el año")
+    } else if (Number(inputValue) < yearToday || Number(inputValue) > 2119) {
+      alert('Año actual hasta 2119')
     } else {
       setID(event.currentTarget.id)
       setShowCalendar(true)
@@ -37,14 +46,13 @@ export const UIDate = () => {
     setShowUIDate(true)
   }
 
-
   return (
     <>
       <p>CALENDARIO / <button onClick={handleClickUIDate}>{id != "" ? months[id] : months[monthToday]}</button></p>
 
       {showUIDate &&
         <div className="uidate-wrapper">
-          <input type="text" value={inputValue} onChange={handleInputChange} />
+          <input type="text" value={inputValue} onChange={handleInputChange} onKeyPress={handleInputChange} />
           {months.map((month, index) => (
             <button id={index} onClick={handleClickMonth}>{month}</button>
           ))}
