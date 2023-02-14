@@ -1,0 +1,22 @@
+@use "../../styles/config.scss" as conf;
+
+.uiadd-head {
+
+    background-color: conf.$primary-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+
+    p {
+        font-family: conf.$montserratAlter;
+        font-size: 20px;
+        color: conf.$white;
+    }
+
+    /* span{
+        font-size: 50px;
+        display: inline-flex;
+    } */
+}
