@@ -59,7 +59,6 @@ export const UIDate = () => {
         <div className="select-date">
           <p ref={validation}>Selecciona una fecha</p>
           <input type="text" value={inputValue} onChange={handleInputChange} onKeyPress={handleInputChange} placeholder="Año" />
-
           <div className="buttons-months">
             {months.map((month, index) => (
               <button id={index} onClick={handleClickMonth}>{month}</button>

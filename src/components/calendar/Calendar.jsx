@@ -1,4 +1,5 @@
 
+import { useState } from "react";
 import { CardDay } from "./day/CardDay";
 
 
@@ -6,7 +7,6 @@ export const Calendar = ({ month, year }) => {
 
 
     let days = [];
-
     //Buscar dia de la semana del dia 1 del mes:
     let firstDayMonth = new Date(year, month, "1") //buscar primer día del mes
     let firstWeek = firstDayMonth.getDay() //buscar día de la semana del día 1
@@ -23,20 +23,19 @@ export const Calendar = ({ month, year }) => {
     for (let i = 0; i < 42; i++) {
 
         let myDay = dayMonth.getDate()
-
-        days[i] = myDay;
+        let myMonth = dayMonth.getMonth()
+        days.push({ month: myMonth, day: myDay });
         //pasar al siguiente día
         myDay = myDay + 1;
         dayMonth.setDate(myDay);
 
-
     }
 
-
+ 
     return (
 
         <div className="calendar-wrapper">
-            <CardDay days={days} month={month}/>
+            <CardDay days={days} selectMonth={month} selectYear={year} />
         </div>
 
     )
