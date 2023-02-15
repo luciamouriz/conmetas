@@ -1,20 +1,21 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { UIGoals } from '../UIGoals/UIGoals';
 import { UIHead } from '../UIHead/UIHead'
 
-export const UIAdd = ({ day, month, year }) => {
+export const UIAdd = () => {
 
 
     const [showUI, setshowUI] = useState(false);
+
 
     const handleshowUI = event => {
         setshowUI(true)
     }
 
-
+   
     return (
+
         <div className='uiadd-wrapper'>
-            <UIHead day={day} month={month} year={year} />
             {!showUI && <div className='uiadd-buttons'>
                 <button onClick={handleshowUI}>OBJETIVO</button>
                 <button>ACTIVIDAD</button>
@@ -23,5 +24,7 @@ export const UIAdd = ({ day, month, year }) => {
             {showUI && <UIGoals />}
 
         </div>
+
+
     )
 }

@@ -8,15 +8,25 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px;
+    width: 596px;
 
     p {
+        justify-content: center;
         font-family: conf.$montserratAlter;
         font-size: 20px;
         color: conf.$white;
     }
 
-    /* span{
-        font-size: 50px;
-        display: inline-flex;
-    } */
+
+    .icon-add {
+        display: flex;
+        gap: 20px;
+    }
+
+    button {
+        color: conf.$white;
+        font-size: 20px;
+        margin-left: 10%;
+        cursor: pointer;
+    }
 }

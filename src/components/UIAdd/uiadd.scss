@@ -1,5 +1,8 @@
 @use "../../styles/config.scss" as conf;
 
+.uiadd-wrapper.close{
+    display: none;
+}
 
 .uiadd-wrapper {
     position: absolute;

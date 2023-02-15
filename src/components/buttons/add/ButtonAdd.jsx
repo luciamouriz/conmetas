@@ -1,27 +1,27 @@
 import { useState } from "react"
-import { UIAdd } from "../../UIAdd/UIAdd";
-let idDay ;
+import { UIHeadAdd } from "../../UIHeadAdd/UIHeadAdd";
+let idDay;
 
-export const ButtonAdd = ({day , month , year}) => {
-
-  const [showUIAdd, setShowUIAdd] = useState(false)
+export const ButtonAdd = ({ day, month, year }) => {
 
   const handleClickAdd = event => {
-    
-      setShowUIAdd(true)
-      idDay = event.currentTarget.id;
-    
-    
-    
+
+    setshowUIHeadAdd(true)
+    idDay = event.currentTarget.id;
   }
 
+  const [showUIHeadAdd, setshowUIHeadAdd] = useState();
 
+  function handleClickClose() {
+    setshowUIHeadAdd(false);
+  }
 
   return (
     <>
 
       <button className="button-add" onClick={handleClickAdd} id={day}>+</button>
-      {showUIAdd && <UIAdd day={idDay} month={month} year={year}/>}
+      {showUIHeadAdd && <UIHeadAdd day={idDay} month={month} year={year} clickClose={handleClickClose} />}
+
     </>
   )
 }
