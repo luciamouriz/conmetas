@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { UIHeadAdd } from "../../UIHeadAdd/UIHeadAdd";
+import { ModalAdd } from "../../modal-add/ModalAdd";
+import { ModalHeader } from "../../modal-header/ModalHeader";
 let idDay;
 
 export const ButtonAdd = ({ day, month, year }) => {
@@ -20,7 +21,11 @@ export const ButtonAdd = ({ day, month, year }) => {
     <>
 
       <button className="button-add" onClick={handleClickAdd} id={day}>+</button>
-      {showUIHeadAdd && <UIHeadAdd day={idDay} month={month} year={year} clickClose={handleClickClose} />}
+      {showUIHeadAdd &&
+        <div className="add-wrapper">
+          <ModalHeader day={idDay} month={month} year={year} clickClose={handleClickClose} />
+          <ModalAdd />
+        </div>}
 
     </>
   )

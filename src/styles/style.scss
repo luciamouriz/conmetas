@@ -3,9 +3,9 @@
 @forward "../components/header/header";
 @forward "../components/aside/aside";
 @forward "../components/UIDate/uidate.scss";
-@forward "../components/UIHead/uihead.scss";
 @forward "../components/calendar/day/cardday";
-@forward "../components/UIAdd/uiadd.scss";
-@forward "../components/UIGoals/uigoals.scss";
 @forward "../components/buttons/add/buttonadd";
 @forward "../components/calendar/calendar";
+@forward "../components/modal-add/modal-add.scss";
+@forward "../components/modal-goals/modal-goals.scss";
+@forward "../components/modal-header/modal-header.scss";

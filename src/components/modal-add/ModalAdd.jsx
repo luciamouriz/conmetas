@@ -1,8 +1,7 @@
 import React, { useRef, useState } from 'react'
-import { UIGoals } from '../UIGoals/UIGoals';
-import { UIHead } from '../UIHead/UIHead'
+import { ModalGoals } from '../modal-goals/ModalGoals';
 
-export const UIAdd = () => {
+export const ModalAdd = () => {
 
 
     const [showUI, setshowUI] = useState(false);
@@ -15,13 +14,13 @@ export const UIAdd = () => {
    
     return (
 
-        <div className='uiadd-wrapper'>
-            {!showUI && <div className='uiadd-buttons'>
+        <div className='modal-add'>
+            {!showUI && <div className='buttons'>
                 <button onClick={handleshowUI}>OBJETIVO</button>
                 <button>ACTIVIDAD</button>
                 <button>PROYECTO</button>
             </div>}
-            {showUI && <UIGoals />}
+            {showUI && <ModalGoals />}
 
         </div>
 

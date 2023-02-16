@@ -1,6 +1,6 @@
 @use "../../styles/config.scss" as conf;
 
-.uiadd-head {
+.modal-header {
 
     background-color: conf.$primary-color;
     display: flex;
@@ -8,7 +8,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    width: 596px;
+    width: 550px;
 
     p {
         justify-content: center;

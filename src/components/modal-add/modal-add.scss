@@ -1,19 +1,13 @@
 @use "../../styles/config.scss" as conf;
 
-.uiadd-wrapper.close{
-    display: none;
-}
-
-.uiadd-wrapper {
+.modal-add {
     position: absolute;
     width: 596px;
     height: 351px;
     background-color: conf.$white;
     box-shadow: conf.$shadow;
 
-
-
-    .uiadd-buttons {
+    .buttons {
         display: flex;
         flex-direction: column;
         align-items: center;

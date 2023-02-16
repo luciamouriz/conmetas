@@ -1,8 +1,7 @@
-import React from 'react'
 
-export const UIGoals = () => {
+export const ModalGoals = () => {
     return (
-        <div className='uigoals-wrapper'>
+        <div className='modal-goals'>
             <form>
 
                 <input type="radio" />
