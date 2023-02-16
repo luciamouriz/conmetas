@@ -1,4 +1,5 @@
 :root {
+    /*Colors*/
     --primary-color: #805EAB;
     --primary-color-medium: #9296CA;
     --primary-color-light: #F2EDFF;
@@ -6,30 +7,19 @@
     --secondary-color-light: #E5FFFE;
     --gray-dark: #9d9d9d;
     --gray-light: #EEEEEE;
+    --gray-bg-textfield: #F0F0F0;
+    --gray-br-textfield: #DCDCDC;
     --color-error: #AB5E5E;
     --white-color: #FFFFFF;
     --black-color: #000000;
+
+    /*Shadows*/
     --shadow: 0px 4px 8px rgba(0, 0, 0, 0.14);
+
+    /*Fonts*/
     --font-montserrat: 'Montserrat';
     --font-montserratAlter: 'Montserrat Alternates';
 }
-
-/*Colors*/
-$primary-color: var(--primary-color);
-$primary-color-medium : var(--primary-color-medium);
-$primary-color-light : var(--primary-color-light);
-$secondary-color: var(--secondary-color);
-$white: var(--white-color);
-$black: var(--black-color);
-$gray-light: var(--gray-light);
-$gray-dark: var(--gray-dark);
-/*Shadows*/
-$shadow: var(--shadow);
-
-/*Fonts*/
-$montserrat: var(--font-montserrat);
-$montserratAlter: var(--font-montserratAlter);
-
 
 
 @mixin hover-button {

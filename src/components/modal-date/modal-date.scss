@@ -18,13 +18,13 @@
 
     .title-calendar {
         font-size: 20px;
-        font-family: conf.$montserratAlter;
+        font-family: var(--font-montserratAlter);
 
         button {
             font-size: 25px;
             text-transform: uppercase;
-            background-color: conf.$primary-color;
-            color: conf.$white;
+            background-color: var(--primary-color);
+            color: var(--white-color);
             font-style: normal;
             padding: 10px;
             border-radius: 5px;
@@ -42,8 +42,8 @@
         position: absolute;
         top: 2%;
         left: 30%;
-        background-color: conf.$white;
-        box-shadow: conf.$shadow;
+        background-color: var(--white-color);
+        box-shadow: var(--shadow);
         padding: 50px;
         display: flex;
         flex-direction: column;
@@ -58,11 +58,11 @@
             font-size: 30px;
             text-align: center;
             border-radius: 3px;
-            border-color: conf.$primary-color;
+            border-color: var(--primary-color);
 
             &:focus {
                 outline: 0;
-                background-color: conf.$primary-color-light;
+                background-color: var(--primary-color-light);
             }
         }
 
@@ -74,8 +74,8 @@
 
             button {
                 padding: 20px;
-                background-color: conf.$primary-color;
-                color: conf.$white;
+                background-color: var(--primary-color);
+                color: var(--white-color);
                 font-size: 16px;
                 border-radius: 3px;
                 border: 1px solid;

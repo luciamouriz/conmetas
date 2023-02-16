@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react'
-import { ModalGoals } from '../modal-goals/ModalGoals';
+import React, {  useState } from 'react'
+import { ModalAddGoals } from '../modal-add-goals/ModalAddGoals';
 
 export const ModalAdd = () => {
 
@@ -20,7 +20,7 @@ export const ModalAdd = () => {
                 <button>ACTIVIDAD</button>
                 <button>PROYECTO</button>
             </div>}
-            {showUI && <ModalGoals />}
+            {showUI && <ModalAddGoals />}
 
         </div>
 

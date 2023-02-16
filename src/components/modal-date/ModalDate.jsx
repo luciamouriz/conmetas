@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import { Calendar } from "../calendar/Calendar"
 
-export const UIDate = () => {
+export const ModalDate = () => {
 
 
   let today = new Date();

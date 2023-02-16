@@ -4,8 +4,8 @@
     position: absolute;
     width: 596px;
     height: 351px;
-    background-color: conf.$white;
-    box-shadow: conf.$shadow;
+    background-color: var(--white-color);
+    box-shadow: var(--shadow);
 
     .buttons {
         display: flex;
@@ -15,13 +15,13 @@
         margin-top: 50px;
 
         button {
-            font-family: conf.$montserratAlter;
+            font-family: var(--font-montserrat);
             width: 315px;
             height: 48px;
             font-size: 20px;
-            color: conf.$white;
+            color: var(--white-color);
             font-weight: 400;
-            background-color: conf.$primary-color;
+            background-color: var(--primary-color);
             cursor: pointer;
             @include conf.hover-button;
         }

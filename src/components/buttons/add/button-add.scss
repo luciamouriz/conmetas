@@ -1,9 +1,8 @@
-
 @use "../../../styles/config.scss" as conf;
 
 .button-add {
-    background-color:conf.$primary-color;
-    color: conf.$white;
+    background-color: var(--primary-color);
+    color: var(--white-color);
     width: 30px;
     height: 30px;
     border: 0;
@@ -13,6 +12,6 @@
     @include conf.hover-button;
 }
 
-.add-wrapper{
-    position: absolute;  
+.add-wrapper {
+    position: absolute;
 }

@@ -1,8 +1,7 @@
-@use "../../styles/config.scss" as conf;
 
 .modal-header {
 
-    background-color: conf.$primary-color;
+    background-color: var(--primary-color);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -12,9 +11,9 @@
 
     p {
         justify-content: center;
-        font-family: conf.$montserratAlter;
+        font-family: var(--font-montserratAlter);
         font-size: 20px;
-        color: conf.$white;
+        color: var(--white-color);
     }
 
 
@@ -24,7 +23,7 @@
     }
 
     button {
-        color: conf.$white;
+        color: var(--white-color);
         font-size: 20px;
         margin-left: 10%;
         cursor: pointer;

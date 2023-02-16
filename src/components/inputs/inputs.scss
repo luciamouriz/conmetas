@@ -1,0 +1,13 @@
+
+.textfield{
+    width: 354px;
+    height: 37px;
+    background-color: var(--gray-bg-textfield);
+    border: 1px solid var(--gray-br-textfield);
+    border-radius: 3px;
+    padding-left: 12px;
+    
+    &:focus{
+        outline: 2px solid var(--secondary-color);
+    }
+}

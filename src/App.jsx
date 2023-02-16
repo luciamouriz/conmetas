@@ -1,7 +1,7 @@
 
 import { Aside } from "./components/aside/Aside";
 import { Header } from "./components/header/Header";
-import { UIDate } from "./components/UIDate/UIDate";
+import { ModalDate } from "./components/modal-date/ModalDate";
 
 export default function App() {
 
@@ -12,8 +12,7 @@ export default function App() {
             <Header />
             <Aside />
             <main>
-               
-                <UIDate />
+                <ModalDate />
             </main>
 
         </>

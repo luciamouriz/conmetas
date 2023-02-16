@@ -2,10 +2,12 @@
 @forward "./config";
 @forward "../components/header/header";
 @forward "../components/aside/aside";
-@forward "../components/UIDate/uidate.scss";
 @forward "../components/calendar/day/cardday";
-@forward "../components/buttons/add/buttonadd";
+@forward "../components/buttons/add/button-add";
 @forward "../components/calendar/calendar";
+@forward "../components/combobox/combobox.scss";
+@forward "../components/inputs/inputs.scss";
 @forward "../components/modal-add/modal-add.scss";
-@forward "../components/modal-goals/modal-goals.scss";
+@forward "../components/modal-add-goals/modal-add-goals.scss";
 @forward "../components/modal-header/modal-header.scss";
+@forward "../components/modal-date/modal-date.scss";
