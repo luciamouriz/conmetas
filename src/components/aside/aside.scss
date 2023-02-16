@@ -1,3 +1,32 @@
+@use "../../styles/config.scss" as conf;
+
+
+.button-close-aside {
+    position: absolute;
+    top: 18%;
+    left: 1.5%;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    z-index: 300;
+    cursor: pointer;
+
+    span {
+        display: block;
+        width: 34px;
+        height: 1px;
+        background-color: white;
+    }
+
+    span.close {
+        display: block;
+        width: 34px;
+        height: 1px;
+        background-color: var(--primary-color);
+    }
+}
+
+
 aside {
     grid-area: aside;
     background-color: var(--primary-color);
@@ -6,22 +35,22 @@ aside {
     font-size: 20px;
     color: var(--white-color);
     gap: 20px;
+    padding-top: 6em;
+    transition: display 2s ease-in-out;
+
+    a img {
+        width: 10%;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 20px;
+        padding-left: 30px;
+    }
 }
 
-aside a img {
-    width: 10%;
-}
-
-aside button {
-    align-self: self-start;
-    padding: 30px;
-
-}
-
-aside a {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    gap: 20px;
-    padding-left: 30px;
+aside.close {
+    visibility: var(conf.$visibleAside);
 }

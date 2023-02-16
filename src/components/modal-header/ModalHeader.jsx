@@ -1,4 +1,3 @@
-import { useState } from "react";
 import iconadd from "../../assets/add.svg";
 
 export const ModalHeader = ({ day, month, year, clickClose }) => {
