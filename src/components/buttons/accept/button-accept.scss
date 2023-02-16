@@ -1,0 +1,17 @@
+
+@use "../../../styles/config.scss" as conf;
+
+.button-accept {
+    width: 121px;
+    height: 47px;
+    background-color: var(--primary-color);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+    text-align: center;
+    color: var(--white-color);
+    border-radius: 3px;
+    font-family: var(--font-montserratAlter);
+    cursor: pointer;
+    @include conf.hover-button;
+}

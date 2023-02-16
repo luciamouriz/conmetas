@@ -1,0 +1,22 @@
+@use "../../../styles/config.scss" as conf;
+
+
+
+.button-back {
+    width: 103px;
+    height: 47px;
+    border: 1px solid var(--gray-dark);
+    border-radius: 3px;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 21px;
+    text-align: center;
+    font-family: var(--font-montserratAlter);
+    cursor: pointer;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}

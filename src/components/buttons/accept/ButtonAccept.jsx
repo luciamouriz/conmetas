@@ -2,7 +2,7 @@
 export const ButtonAccept = () => {
     return (
         <>
-            <button>Aceptar</button>
+            <button className="button-accept">Aceptar</button>
         </>
     )
 }
