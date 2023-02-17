@@ -1,9 +1,11 @@
+
 import arrowBack from "../../../assets/arrow-back.svg"
-export const ButtonBack = () => {
+export const ButtonBack = ({ back }) => {
+
+    
     return (
         <>
-            <button className="button-back"> <img src={arrowBack}/> Atras </button>
-
+            <button onClick={back} className="button-back"> <img src={arrowBack} /> Atras </button>
         </>
     )
 }

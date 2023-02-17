@@ -5,14 +5,15 @@ import tasks from "../../assets/tasks.svg";
 import project from "../../assets/projects.svg";
 import { useState } from "react";
 
-export const Aside = ({close}) => {
+export const Aside = ({ close }) => {
 
     const [visible, setVisible] = useState(true);
     const [classColor, setClassColor] = useState();
 
 
     const handleClick = () => {
-        close();
+        close(); //Actualizamos en App.jsx el contenedor-Grid principal
+        /*Cambiamos la clase del boton que cierra y abre el aside*/
         if (classColor == "close") {
             setVisible(true)
             setClassColor("")
@@ -22,7 +23,7 @@ export const Aside = ({close}) => {
         }
     }
 
-
+    /**/
     return (
         <>
             <button onClick={handleClick} className="button-close-aside">

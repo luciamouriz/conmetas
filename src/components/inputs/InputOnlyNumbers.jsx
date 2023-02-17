@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-export const InputOnlyNumbers = () => {
+export const InputOnlyNumbers = (props) => {
 
 
-    const [inputValue, setInputValue] = useState();
+    const [inputValue, setInputValue] = useState('');
 
     //Solo numeros
     const handleInputNumbers = event => {
@@ -16,16 +16,16 @@ export const InputOnlyNumbers = () => {
 
     };
 
-    
+
 
     const handleChange = event => {
         setInputValue(event.target.value);
+        props.onChange(inputValue)
     }
-
 
     return (
         <>
-            <input className="textfield" type="text" value={inputValue} onChange={handleChange} onKeyPress={handleInputNumbers} />
+            <input className="textfield" type="text" onChange={handleChange} onKeyPress={handleInputNumbers} />
         </>
     )
 }

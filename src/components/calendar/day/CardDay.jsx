@@ -1,5 +1,6 @@
 
 import { ButtonAdd } from "../../buttons/add/ButtonAdd"
+import { ButtonAddDisabled } from "../../buttons/add/ButtonAddDisabled";
 
 export const CardDay = ({ days, selectMonth, selectYear }) => {
 
@@ -15,7 +16,6 @@ export const CardDay = ({ days, selectMonth, selectYear }) => {
         if (selectMonth < monthToday) {
           return (<div className="card-day-off">
             <div className="num-day">{day.day}</div>
-            <ButtonAdd day={day.day} month={selectMonth} year={selectYear}/>
           </div>)
         } else {
           //ON los dias que corresponden al mes. Mes del array con mes seleccionado
@@ -24,18 +24,18 @@ export const CardDay = ({ days, selectMonth, selectYear }) => {
             if (day.day < dayToday && selectMonth == monthToday) {
               return (<div className="card-day-off">
                 <div className="num-day">{day.day}</div>
-                <ButtonAdd day={day.day} month={selectMonth} year={selectYear}/>
+                <ButtonAddDisabled />
               </div>)
             } else {
               if (day.day == dayToday && selectMonth == monthToday) {
                 return (<div className="card-day-on active">
                   <div className="num-day">{day.day}</div>
-                  <ButtonAdd day={day.day} month={selectMonth} year={selectYear}/>
+                  <ButtonAdd day={day.day} month={selectMonth} year={selectYear} />
                 </div>)
               } else {
                 return (<div className="card-day-on">
                   <div className="num-day">{day.day}</div>
-                  <ButtonAdd day={day.day} month={selectMonth} year={selectYear}/>
+                  <ButtonAdd day={day.day} month={selectMonth} year={selectYear} />
                 </div>)
               }
 

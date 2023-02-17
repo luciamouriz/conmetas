@@ -4,23 +4,27 @@ import { ModalAddGoals } from '../modal-add-goals/ModalAddGoals';
 export const ModalAdd = () => {
 
 
-    const [showUI, setshowUI] = useState(false);
+    const [showComponent, setShowComponent] = useState(false);
 
 
-    const handleshowUI = event => {
-        setshowUI(true)
+    const handleshowAddGoals = event => {
+        setShowComponent(true)
     }
 
-   
+    const handleshowAdd = event => {
+        setShowComponent(false)
+    }
+
+
     return (
 
         <div className='modal-add'>
-            {!showUI && <div className='buttons'>
-                <button onClick={handleshowUI}>OBJETIVO</button>
+            {!showComponent && <div className='buttons'>
+                <button onClick={handleshowAddGoals}>OBJETIVO</button>
                 <button>ACTIVIDAD</button>
                 <button>PROYECTO</button>
             </div>}
-            {showUI && <ModalAddGoals />}
+            {showComponent && <ModalAddGoals back={handleshowAdd}/>}
 
         </div>
 

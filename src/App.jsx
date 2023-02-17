@@ -17,7 +17,11 @@ export default function App() {
     }
 
     return (
-
+        /**
+         * Al cerrar el aside el contenedor se cambiara de formato grid para que ocupe toda la pantalla.
+         * Por eso le pasamos la funcion closeAside, para que cuando demos click al boton de cerrar y abrir aside ,se actualize el showAside 
+         * y a la vez el contenedor grid
+         */
         <div className={`container ${showAside ? 'with-aside' : 'without-aside'}`}>
             <Header />
             <Aside close={closeAside} />
