@@ -1,5 +1,6 @@
 
-import { CardDay } from "./day/CardDay";
+
+import { CardDayList } from "./card-day/CardDayList";
 
 
 export const Calendar = ({ month, year }) => {
@@ -22,7 +23,7 @@ export const Calendar = ({ month, year }) => {
     for (let i = 0; i < 42; i++) {
 
         let myDay = dayMonth.getDate()
-        let myMonth = dayMonth.getMonth()
+        let myMonth = dayMonth.getMonth();
         days.push({ month: myMonth, day: myDay });
         //pasar al siguiente día
         myDay = myDay + 1;
@@ -30,11 +31,11 @@ export const Calendar = ({ month, year }) => {
 
     }
 
- 
+console.log(month)
     return (
 
         <div className="calendar-wrapper">
-            <CardDay days={days} selectMonth={month} selectYear={year} />
+            <CardDayList days={days} selectMonth={month} selectYear={year} />
         </div>
 
     )

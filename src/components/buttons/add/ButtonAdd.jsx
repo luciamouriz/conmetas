@@ -30,7 +30,7 @@ export const ButtonAdd = ({ day, month, year }) => {
           <div className="bg-block"></div>
           <div className="add-wrapper">
             <ModalHeader day={day} month={month} year={year} clickClose={handleClickClose} />
-            <ModalAdd />
+            <ModalAdd day={day} month={month} year={year}/>
           </div>
         </>
       }

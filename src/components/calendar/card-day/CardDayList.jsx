@@ -1,12 +1,30 @@
 
-import { ButtonAdd } from "../../buttons/add/ButtonAdd"
-import { ButtonAddDisabled } from "../../buttons/add/ButtonAddDisabled";
+import { GoalsList } from "../../lists/GoalsList";
+import { CardDayActive } from "./CardDayActive";
+import { CardDayDisabled } from "./CardDayDisabled";
+import { CardDayOn } from "./CardDayOn";
 
-export const CardDay = ({ days, selectMonth, selectYear }) => {
+export const CardDayList = ({ days, selectMonth, selectYear }) => {
 
   let today = new Date()
   let dayToday = today.getDate();
   let monthToday = today.getMonth();
+
+  let list = GoalsList();
+
+  const getArticle = (day) => {
+    const numMonth = Number(selectMonth) + 1;
+    const filteredGoals = list.filter((goal) => {
+      return selectYear + "-0" + numMonth + "-" + day === goal.attributes.field_fecha;
+    });
+
+    return filteredGoals.map((goal) => {
+      return <p>{goal.attributes.field_descripcion}</p>;
+    });
+  };
+
+
+
 
   return (
     <>
@@ -22,21 +40,12 @@ export const CardDay = ({ days, selectMonth, selectYear }) => {
           if (day.month == selectMonth) {
             //Si el dia del array es menor que el dia de hoy se pintara en OFF, es decir seran OFF los dias anteriores al de hoy
             if (day.day < dayToday && selectMonth == monthToday) {
-              return (<div className="card-day-off">
-                <div className="num-day">{day.day}</div>
-                <ButtonAddDisabled />
-              </div>)
+              return (<CardDayDisabled day={day.day} goals={getArticle}/>)
             } else {
               if (day.day == dayToday && selectMonth == monthToday) {
-                return (<div className="card-day-on active">
-                  <div className="num-day">{day.day}</div>
-                  <ButtonAdd day={day.day} month={selectMonth} year={selectYear} />
-                </div>)
+                return (<CardDayActive day={day.day} month={selectMonth} year={selectYear} goals={getArticle} />)
               } else {
-                return (<div className="card-day-on">
-                  <div className="num-day">{day.day}</div>
-                  <ButtonAdd day={day.day} month={selectMonth} year={selectYear} />
-                </div>)
+                return (<CardDayOn day={day.day} month={selectMonth} year={selectYear} goals={getArticle}/>)
               }
 
             }

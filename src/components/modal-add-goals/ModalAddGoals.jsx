@@ -6,7 +6,7 @@ import { Input } from "../inputs/Input"
 import { InputOnlyNumbers } from "../inputs/InputOnlyNumbers"
 import { Radio } from "../inputs/Radio"
 
-export const ModalAddGoals = ({ back }) => {
+export const ModalAddGoals = ({ day, month, year, back }) => {
 
     const [inputHour, setInputHour] = useState('');
     const [inputDesc, setInputDesc] = useState('');
@@ -21,11 +21,11 @@ export const ModalAddGoals = ({ back }) => {
 
     return (
         <>
-            <form>
+            <div className="form">
                 <div className="radios">
-                    <Radio id={"largo"} />
+                    <Radio value={"largo"} />
                     <label>Objetivo a largo plazo</label>
-                    <Radio id={"corto"} />
+                    <Radio value={"corto"} />
                     <label>Objetivo a corto plazo</label>
                 </div>
                 <div className="data-goals">
@@ -47,7 +47,7 @@ export const ModalAddGoals = ({ back }) => {
                     <ButtonAccept />
                 </div>
 
-            </form>
+            </div>
 
         </>
 
