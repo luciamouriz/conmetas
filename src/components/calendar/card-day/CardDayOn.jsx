@@ -1,6 +1,5 @@
 
 import { ButtonAdd } from "../../buttons/add/ButtonAdd";
-import { GoalsList } from "../../lists/GoalsList";
 
 export const CardDayOn = ({ day, month, year, goals }) => {
 

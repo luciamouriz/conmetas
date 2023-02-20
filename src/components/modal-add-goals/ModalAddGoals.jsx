@@ -10,32 +10,34 @@ export const ModalAddGoals = ({ day, month, year, back }) => {
 
     const [inputHour, setInputHour] = useState('');
     const [inputDesc, setInputDesc] = useState('');
+    const [inputRadio, setInputRadio] = useState('');
 
-    const handleInputChangeNumbers = (value) => {
+    const handleInputChangeHora = (value) => {
         setInputHour(value);
     }
 
-    const handleInputChangeText = (value) => {
+    const handleInputChangeDesc = (value) => {
         setInputDesc(value);
+    }
+    const handleRadioChangeRadio = (value) => {
+        setInputRadio(value);
     }
 
     return (
         <>
             <div className="form">
                 <div className="radios">
-                    <Radio value={"largo"} />
-                    <label>Objetivo a largo plazo</label>
-                    <Radio value={"corto"} />
-                    <label>Objetivo a corto plazo</label>
+                    <Radio value={"l"} label={'Objetivo a largo plazo'} onChange={handleRadioChangeRadio}/>
+                    <Radio value={"c"} label={'Objetivo a corto plazo'} onChange={handleRadioChangeRadio}/>
                 </div>
                 <div className="data-goals">
                     <div>
                         <label>Hora </label>
-                        <InputOnlyNumbers onChange={handleInputChangeNumbers} />
+                        <InputOnlyNumbers onChange={handleInputChangeHora} />
                     </div>
                     <div>
                         <label>Nombre </label>
-                        <Input onChange={handleInputChangeText} />
+                        <Input onChange={handleInputChangeDesc} />
                     </div>
                     <div>
                         <label>Depende de </label>
@@ -44,7 +46,7 @@ export const ModalAddGoals = ({ day, month, year, back }) => {
                 </div>
                 <div className="buttons-back-accept">
                     <ButtonBack back={back} />
-                    <ButtonAccept />
+                    <ButtonAccept date={year+month+day} radio={inputRadio} hour={inputHour} name={inputDesc} />
                 </div>
 
             </div>

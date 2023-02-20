@@ -2,11 +2,11 @@ import { useState } from "react"
 import { ModalAdd } from "../../modal-add/ModalAdd";
 import { ModalHeader } from "../../modal-header/ModalHeader";
 
+
 export const ButtonAdd = ({ day, month, year }) => {
 
   const [showComponent, setshowComponent] = useState(false);
   const [showModal, setShowModal] = useState([])
-
 
   const handleClickClose = () => {
     setshowComponent(false);
@@ -30,7 +30,7 @@ export const ButtonAdd = ({ day, month, year }) => {
           <div className="bg-block"></div>
           <div className="add-wrapper">
             <ModalHeader day={day} month={month} year={year} clickClose={handleClickClose} />
-            <ModalAdd day={day} month={month} year={year}/>
+            <ModalAdd day={day} month={month} year={year} />
           </div>
         </>
       }

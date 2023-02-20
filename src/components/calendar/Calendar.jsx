@@ -31,7 +31,7 @@ export const Calendar = ({ month, year }) => {
 
     }
 
-console.log(month)
+
     return (
 
         <div className="calendar-wrapper">
