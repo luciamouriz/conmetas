@@ -1,9 +1,18 @@
 
 import { AddGoals } from '../../data/AddGoals';
 
-export const ButtonAccept = (props) => {
+export const ButtonAccept = ({ date, radio, hour, name }) => {
+
+    const handleAddGoals = () => {
+        AddGoals(date, radio, hour, name)
+       
+       
+    }
+
 
     return (
-        <button onClick={AddGoals(props.radio, props.hour, props.name)} className="button-accept">Aceptar</button>
+
+        <button onClick={handleAddGoals} className="button-accept">Aceptar</button>
+        
     )
 }

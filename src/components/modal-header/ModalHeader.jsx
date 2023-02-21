@@ -10,7 +10,7 @@ export const ModalHeader = ({ day, month, year, clickClose }) => {
             <div className='modal-header'>
                 <div className="icon-add"><img src={iconadd} alt="Add" /><p>Crear</p></div>
                 <p>{day} {months[month]} {year}</p>
-                <button onClick={clickClose}>X</button>
+                <button className="close-modalAdd" onClick={clickClose}>X</button>
             </div>
 
         </>

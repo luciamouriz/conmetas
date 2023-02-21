@@ -23,7 +23,7 @@ export const InputOnlyLetters = () => {
 
     return (
         <>
-            <input className="textfield" type="text" value={inputValue} onChange={handleChange} onKeyPress={handleInputLetters} />
+            <input className="input" type="text" value={inputValue} onChange={handleChange} onKeyPress={handleInputLetters} />
         </>
     )
 }

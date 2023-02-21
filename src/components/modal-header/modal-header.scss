@@ -1,3 +1,5 @@
+@use "../../styles/config.scss" as conf;
+
 
 .modal-header {
 
@@ -8,6 +10,7 @@
     align-items: center;
     padding: 15px;
     box-shadow: var(--shadow);
+
     p {
         justify-content: center;
         font-family: var(--font-montserratAlter);
@@ -15,6 +18,14 @@
         color: var(--white-color);
     }
 
+    .close-modalAdd {
+        margin-right: 6px;
+        font-weight: 500;
+        border: 1px solid white;
+        padding: 3px 8px 3px 8px;
+        border-radius: 3px;
+        @include conf.hover-button;
+    }
 
     .icon-add {
         display: flex;

@@ -1,18 +1,15 @@
-import { useState } from "react";
 
-export const Radio = (props) => {
-
-    const [selectedValue, setSelectedValue] = useState();
+export const Radio = ({ value, label, onChange, checked }) => {
 
     
     const handleRadioChange = event => {
-        setSelectedValue(event.target.value);
-        props.onChange(selectedValue)
+        onChange(value)
     }
+
     return (
         <>
-            <input className="radio" type="radio" id={props.value} value={props.value} name="radio" onChange={handleRadioChange} />
-            <label for={props.value}>{props.label}</label>
+            <input className="radio" type="radio" id={value} value={value} name="radio" onChange={handleRadioChange} checked={checked} />
+            <label htmlFor={value}>{label}</label>
         </>
     )
 }

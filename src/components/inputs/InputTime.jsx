@@ -1,9 +1,11 @@
 import { useState } from "react";
 
-export const Input = ({ onChange }) => {
+export const InputTime = ({ onChange }) => {
 
 
     const [inputValue, setInputValue] = useState('');
+
+
 
     const handleChange = event => {
         setInputValue(event.target.value);
@@ -12,7 +14,7 @@ export const Input = ({ onChange }) => {
 
     return (
         <>
-            <input className="input" type="text" onChange={handleChange} />
+            <input className="input-time" type="time" onChange={handleChange} />
         </>
     )
 }

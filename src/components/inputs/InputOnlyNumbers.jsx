@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const InputOnlyNumbers = (props) => {
+export const InputOnlyNumbers = ({ onChange }) => {
 
 
     const [inputValue, setInputValue] = useState('');
@@ -20,12 +20,12 @@ export const InputOnlyNumbers = (props) => {
 
     const handleChange = event => {
         setInputValue(event.target.value);
-        props.onChange(inputValue)
+        onChange(inputValue)
     }
 
     return (
         <>
-            <input className="textfield" type="text" onChange={handleChange} onKeyPress={handleInputNumbers} />
+            <input className="input" type="text" onChange={handleChange} onKeyPress={handleInputNumbers}/>
         </>
     )
 }
