@@ -40,7 +40,7 @@ export const AddGoals = (date, radio, hour, name) => {
             }
         };
         return axios.post(baseUrl + restPath, data, config).then(response => {
-            //window.location.reload();
+            window.location.reload();
         });
     } else {
         console.log("Fecha: " + date + " Radio: " + radio + " Hora: " + hour + " Nombre: " + name)
@@ -55,7 +55,7 @@ export const AddGoals = (date, radio, hour, name) => {
             }
         };
         return axios.post(baseUrl + restPath2, data, config).then(response => {
-            //window.location.reload();
+            window.location.reload();
         });
     }
 

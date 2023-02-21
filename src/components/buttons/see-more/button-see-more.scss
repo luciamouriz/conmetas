@@ -1,0 +1,22 @@
+@use "../../../styles/config.scss" as conf;
+
+.see-more {
+    width: 100%;
+    align-self: center;
+    font-weight: 400;
+    font-size: 28px;
+    text-align: center;
+    letter-spacing: 0.10em;
+    cursor: pointer;
+    @include conf.hover-button;
+}
+
+.see-more-disabled {
+    width: 100%;
+    align-self: center;
+    font-weight: 400;
+    font-size: 28px;
+    text-align: center;
+    letter-spacing: 0.10em;
+    color: var(--gray-dark)
+}

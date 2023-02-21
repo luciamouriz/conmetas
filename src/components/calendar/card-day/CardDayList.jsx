@@ -23,10 +23,10 @@ export const CardDayList = ({ days, selectMonth, selectYear }) => {
 
 
   /**
-   * Metodo que devolvera dependiendo del dia en que te encuentres si tiene Metas a largo plazo o a corto
-   * Nos devuelve el contenido GET de una o de otra, haciendo un filtrado anteriormente para obtener solo las fechas iguales 
+   * Metodo que devolvera Metas a largo plazo o a corto
+   * Nos devuelve el contenido GET, haciendo un filtrado anteriormente para obtener solo las fechas iguales 
    */
-  
+
   const getDataGoals = (day) => {
     const numMonth = (Number(selectMonth) + 1).toString().padStart(2, "0");
     const numDay = day.toString().padStart(2, "0");
@@ -38,18 +38,21 @@ export const CardDayList = ({ days, selectMonth, selectYear }) => {
       return selectYear + "-" + numMonth + "-" + numDay === goal.attributes.field_date;
     });
 
-    if (filteredLongGoals.length > 0) {
-      return filteredLongGoals.map((goal) => {
-        return <p>{goal.attributes.field_description_long}</p>;
-      });
-  
-    }
+    const combinedGoals = filteredLongGoals.map((goal1, index) => {
 
-    if (filteredShortGoals.length > 0) {
-      return filteredShortGoals.map((goal) => {
-        return <p>{goal.attributes.field_description}</p>;
-      });
-    }
+      return (
+        <>
+          <p>{goal1.attributes.field_description_long}</p>
+          {filteredShortGoals.map((goal2, index2) => {
+            return (
+              <p key={`goal-${index}-${index2}`}>{goal2.attributes.field_description}</p>
+            );
+          })}
+        </>
+      )
+    })
+
+    return combinedGoals;
 
   };
 
