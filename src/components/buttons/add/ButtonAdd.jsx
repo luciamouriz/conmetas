@@ -1,38 +1,32 @@
 import { useState } from "react"
-import { ModalAdd } from "../../modal-add/ModalAdd";
-import { ModalHeader } from "../../modal-header/ModalHeader";
+import { ModalCreate } from "../../modal-create/ModalCreate";
 
 
 export const ButtonAdd = ({ day, month, year }) => {
 
   const [showComponent, setshowComponent] = useState(false);
-  const [showModal, setShowModal] = useState([])
 
+  /* Cerramos la ventana ModalCreate*/
   const handleClickClose = () => {
     setshowComponent(false);
   }
 
-  /*Nos aparece la ventana de Modal o Dialog*/
+  /*Nos aparece la ventana de ModalCreate*/
   const handleClickAdd = event => {
     setshowComponent(true)
 
 
   }
 
-  /*Al dar click al boton añadir, nos aparece la pantalla modal header y modal Add. Modal Header tendra un props que sera 
-  una funcion que podra cerrar la interfaz entera. Cerrara los dos Modal*/
+  /*Al dar click al boton añadir, nos aparece el ModalCreate. 
+  A este le pasamos la funcion cerrar para que desde el ModalHeader lo podamos cerrar
+  es decir, el valor de showComponent sera false y no aparecera la ventana*/
   return (
     <>
 
       <button className="button-add" onClick={handleClickAdd}>+</button>
       {showComponent &&
-        <>
-          <div className="bg-block"></div>
-          <div className="add-wrapper">
-            <ModalHeader day={day} month={month} year={year} clickClose={handleClickClose} />
-            <ModalAdd day={day} month={month} year={year} />
-          </div>
-        </>
+        <ModalCreate day={day} month={month} year={year} close={handleClickClose}/>
       }
     </>
   )

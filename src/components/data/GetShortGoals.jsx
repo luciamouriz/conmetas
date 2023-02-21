@@ -2,15 +2,14 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
-export const GetGoals = () => {
+export const GetShortGoals = () => {
     const [goals, setGoals] = useState([]);
 
 
     useEffect(() => {
-        axios.get('http://localhost:8080/install-dir/web/jsonapi/node/objetivo_a_corto_plazo')
+        axios.get('http://localhost:8080/install-dir/web/jsonapi/node/short_term_goals')
             .then(response => setGoals(response.data.data));
     }, []);
-
-   
+    
     return goals;
 }
