@@ -1,7 +1,6 @@
 
 
 import { CardDayList } from "./card-day/CardDayList";
-import { CardDayRectangle } from "./card-day/CardDayRectangle";
 
 
 export const Calendar = ({ month, year }) => {
@@ -35,9 +34,7 @@ export const Calendar = ({ month, year }) => {
 
     return (
 
-
         <CardDayList days={days} selectMonth={month} selectYear={year} />
-
 
     )
 }

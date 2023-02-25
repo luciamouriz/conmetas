@@ -4,7 +4,6 @@ import { ButtonSeeMore } from "../../buttons/see-more/ButtonSeeMore"
 
 export const CardDayActive = ({ day, month, year, goals }) => {
 
-console.log(goals(day))
   return (
     <>
       <div className="card-day-on active">

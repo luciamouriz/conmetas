@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 
-export const AddGoals = (date, radio, hour, name) => {
+export const AddGoals = async (date, radio, hour, name) => {
 
 
     const baseUrl = 'http://localhost:8080/install-dir/web';
@@ -11,6 +11,8 @@ export const AddGoals = (date, radio, hour, name) => {
     const username = 'lucia';
     const password = 'conmetas';
     let data = {};
+
+
     const config = {
         headers: {
             'Content-Type': 'application/vnd.api+json',
@@ -24,7 +26,7 @@ export const AddGoals = (date, radio, hour, name) => {
 
 
     if (radio == "c") {
-        console.log("Fecha: " + date + " Radio: " + radio + " Hora: " + hour + " Nombre: " + name)
+        console.log("Fecha: " + date + " Radio: " + radio + " Hora: " + hour.hour1 + " Nombre: " + name)
 
         data = {
             data: {
@@ -39,11 +41,13 @@ export const AddGoals = (date, radio, hour, name) => {
                 }
             }
         };
-        return axios.post(baseUrl + restPath, data, config).then(response => {
-            window.location.reload();
-        });
+
+
+        return await axios.post(baseUrl + restPath, data, config)
+
+
     } else {
-        console.log("Fecha: " + date + " Radio: " + radio + " Hora: " + hour + " Nombre: " + name)
+        //console.log("Fecha: " + date + " Radio: " + radio + " Hora: " + hour + " Nombre: " + name)
         data = {
             data: {
                 type: 'node--long_term_goals',
@@ -54,9 +58,8 @@ export const AddGoals = (date, radio, hour, name) => {
                 }
             }
         };
-        return axios.post(baseUrl + restPath2, data, config).then(response => {
-            window.location.reload();
-        });
+        
+        return await axios.post(baseUrl + restPath2, data, config)
     }
 
 

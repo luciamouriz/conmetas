@@ -1,4 +1,5 @@
 
+import { useEffect } from "react";
 import { GetLongGoals } from "../../data/GetLongGoals";
 import { GetShortGoals } from "../../data/GetShortGoals";
 import { CardDayActive } from "./CardDayActive";
@@ -22,7 +23,7 @@ export const CardDayList = ({ days, selectMonth, selectYear }) => {
   const dataLongGoals = GetLongGoals();
   const dataShortGoals = GetShortGoals();
 
-
+ 
   /**
    * Metodo que devolvera Metas a largo plazo o a corto
    * Nos devuelve el contenido GET, haciendo un filtrado anteriormente para obtener solo las fechas iguales 
@@ -39,21 +40,24 @@ export const CardDayList = ({ days, selectMonth, selectYear }) => {
       return selectYear + "-" + numMonth + "-" + numDay === goal.attributes.field_date;
     });
 
-    const combinedGoals = filteredLongGoals.map((goal1, index) => {
-
+    const combinedGoals = filteredLongGoals.map((goal1) => {
       return (
-        <>
-          <p>{goal1.attributes.field_description_long}</p>
-          {filteredShortGoals.map((goal2, index2) => {
-            return (
-              <p key={`goal-${index}-${index2}`}>{goal2.attributes.field_description}</p>
-            );
-          })}
-        </>
+
+        <p>{goal1.attributes.field_description_long}</p>
       )
     })
 
-    return combinedGoals;
+
+    const combinedGoals2 = filteredShortGoals.map((goal2) => {
+      return (
+
+        <p>{goal2.attributes.field_description}</p>
+
+      )
+    })
+
+
+    return combinedGoals.concat(combinedGoals2);
 
   };
 
@@ -89,7 +93,7 @@ export const CardDayList = ({ days, selectMonth, selectYear }) => {
         )}
       </div>
       <div className="calendar-rectangle">
-        <CardDayRectangle days={days} selectMonth={selectMonth} selectYear={selectYear} goals={getDataGoals}/>
+        <CardDayRectangle days={days} selectMonth={selectMonth} selectYear={selectYear} goals={getDataGoals} />
       </div>
     </>
 

@@ -14,8 +14,6 @@ export const ButtonAdd = ({ day, month, year }) => {
   /*Nos aparece la ventana de ModalCreate*/
   const handleClickAdd = event => {
     setshowComponent(true)
-
-
   }
 
   /*Al dar click al boton añadir, nos aparece el ModalCreate. 

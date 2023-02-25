@@ -1,9 +1,6 @@
-import { useState } from "react";
 
 export const InputOnlyNumbers = ({ onChange }) => {
 
-
-    const [inputValue, setInputValue] = useState('');
 
     //Solo numeros
     const handleInputNumbers = event => {
@@ -19,8 +16,7 @@ export const InputOnlyNumbers = ({ onChange }) => {
 
 
     const handleChange = event => {
-        setInputValue(event.target.value);
-        onChange(inputValue)
+        onChange(event.target.value)
     }
 
     return (
