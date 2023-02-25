@@ -1,10 +1,11 @@
 
 import { AddGoals } from '../../data/AddGoals';
 
-export const ButtonAccept = ({ date, radio, hour, name }) => {
+export const ButtonAccept = ({ date, radio, hour, name, idLTG, close }) => {
  
     const handleAddGoals = () => {
-        AddGoals(date, radio, hour, name)
+        AddGoals(date, radio, hour, name, idLTG)
+        close()
     }
 
 

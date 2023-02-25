@@ -18,7 +18,7 @@ export const CardDayRectangle = ({ days, selectMonth, selectYear, goals }) => {
             {days.map((day) => (
                 <>
                     {getGoals(day.day).length > 0 &&
-                        <div className='card-rectangle'>
+                        <div id={day.day} className='card-rectangle'>
                             <div className='day'>
                                 <p>{dayWeek(day.day, day.month)}</p>
                                 <p className='num-day'>{day.day}</p>

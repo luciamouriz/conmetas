@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ModalAddGoals } from '../modal-add-goals/ModalAddGoals';
 
-export const ModalAdd = ({ day, month, year }) => {
+export const ModalAdd = ({ day, month, year, close }) => {
 
 
     const [showComponent, setShowComponent] = useState(false);
@@ -24,7 +24,7 @@ export const ModalAdd = ({ day, month, year }) => {
                 <button>ACTIVIDAD</button>
                 <button>PROYECTO</button>
             </div>}
-            {showComponent && <ModalAddGoals day={day} month={month} year={year} back={handleshowAdd} />}
+            {showComponent && <ModalAddGoals day={day} month={month} year={year} back={handleshowAdd} close={close}/>}
 
         </div>
 

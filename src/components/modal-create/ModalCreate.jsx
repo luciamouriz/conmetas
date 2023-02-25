@@ -10,7 +10,7 @@ export const ModalCreate = ({ day, month, year, close }) => {
             <div className="bg-block"></div>
             <div className="add-wrapper">
                 <ModalHeader day={day} month={month} year={year} clickClose={close} />
-                <ModalAdd day={day} month={month} year={year} />
+                <ModalAdd day={day} month={month} year={year} close={close} />
             </div>
         </>
     )

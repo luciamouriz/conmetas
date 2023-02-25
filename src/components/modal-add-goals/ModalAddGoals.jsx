@@ -6,25 +6,33 @@ import { Input } from "../inputs/Input"
 import { InputTime } from "../inputs/InputTime"
 import { Radio } from "../inputs/Radio"
 
-export const ModalAddGoals = ({ day, month, year, back }) => {
+export const ModalAddGoals = ({ day, month, year, back, close }) => {
 
     const [inputHour1, setInputHour1] = useState('');
     const [inputHour2, setInputHour2] = useState('');
     const [inputDesc, setInputDesc] = useState('');
     const [inputRadio, setInputRadio] = useState('l');
+    const [selectCombo, setSelectCombo] = useState('');
     const [checked, setChecked] = useState(true);
     const numMonth = (Number(month) + 1).toString().padStart(2, "0");
 
-    const handleInputChangeHora1 = (value) => {
+    const handleInputHour1Change = (value) => {
         setInputHour1(value);
     }
-    const handleInputChangeHora2 = (value) => {
+
+    const handleInputHour2Change = (value) => {
         setInputHour2(value);
     }
-    const handleInputChangeDesc = (value) => {
+
+    const handleInputDescChange = (value) => {
         setInputDesc(value);
     }
-    const handleRadioChangeRadio = (value) => {
+
+    const handleSelectComboChange = (value) => {
+        setSelectCombo(value);
+    }
+
+    const handleRadioChange = (value) => {
         setInputRadio(value);
         if (checked == true) {
             setChecked(false)
@@ -37,40 +45,40 @@ export const ModalAddGoals = ({ day, month, year, back }) => {
 
         <div className="form">
             <div className="radios">
-                <Radio value={"l"} label={'Objetivo a largo plazo'} onChange={handleRadioChangeRadio} checked={checked} />
-                <Radio value={"c"} label={'Objetivo a corto plazo'} onChange={handleRadioChangeRadio} />
+                <Radio value={"l"} label={'Objetivo a largo plazo'} onChange={handleRadioChange} checked={checked} />
+                <Radio value={"c"} label={'Objetivo a corto plazo'} onChange={handleRadioChange} />
             </div>
             {inputRadio == "c" ?
                 <>
                     <div className="inputs-short-goals">
                         <div className="inputs-time-goals">
                             <label>Hora </label>
-                            <InputTime onChange={handleInputChangeHora1} />
+                            <InputTime onChange={handleInputHour1Change} />
                             <span> a </span>
-                            <InputTime onChange={handleInputChangeHora2} /> 
+                            <InputTime onChange={handleInputHour2Change} /> 
                         </div>
                         <div>
                             <label>Descripción </label>
-                            <Input onChange={handleInputChangeDesc} />
+                            <Input onChange={handleInputDescChange} />
                         </div>
                         <div>
                             <label>Depende de </label>
-                            <ComboBox />
+                            <ComboBox onChange={handleSelectComboChange}/>
                         </div>
                     </div>
                     <div className="buttons-back-accept">
                         <ButtonBack back={back} />
-                        <ButtonAccept date={year + "-" + numMonth + "-" + day.toString().padStart(2, "0")} radio={inputRadio} hour={{hour1: inputHour1, hour2: inputHour2}} name={inputDesc} />
+                        <ButtonAccept date={year + "-" + numMonth + "-" + day.toString().padStart(2, "0")} radio={inputRadio} hour={{hour1: inputHour1, hour2: inputHour2}} name={inputDesc} idLTG={selectCombo} close={close}/>
                     </div>
                 </>
                 : <>
                     <div>
                         <label>Nombre </label>
-                        <Input onChange={handleInputChangeDesc} />
+                        <Input onChange={handleInputDescChange} />
                     </div>
                     <div className="buttons-back-accept">
                         <ButtonBack back={back} />
-                        <ButtonAccept date={year + "-" + numMonth + "-" + day.toString().padStart(2, "0")} radio={inputRadio} hour={{hour1: inputHour1, hour2: inputHour2}} name={inputDesc} />
+                        <ButtonAccept date={year + "-" + numMonth + "-" + day.toString().padStart(2, "0")} radio={inputRadio} name={inputDesc} close={close}/>
                     </div>
                 </>}
         </div>

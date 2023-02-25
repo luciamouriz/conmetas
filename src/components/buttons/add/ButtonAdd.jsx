@@ -21,7 +21,6 @@ export const ButtonAdd = ({ day, month, year }) => {
   es decir, el valor de showComponent sera false y no aparecera la ventana*/
   return (
     <>
-
       <button className="button-add" onClick={handleClickAdd}>+</button>
       {showComponent &&
         <ModalCreate day={day} month={month} year={year} close={handleClickClose}/>

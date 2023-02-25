@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 
-export const AddGoals = async (date, radio, hour, name) => {
+export const AddGoals = async (date, radio, hour, name, idLTG) => {
 
 
     const baseUrl = 'http://localhost:8080/install-dir/web';
@@ -26,7 +26,7 @@ export const AddGoals = async (date, radio, hour, name) => {
 
 
     if (radio == "c") {
-        console.log("Fecha: " + date + " Radio: " + radio + " Hora: " + hour.hour1 + " Nombre: " + name)
+        console.log("Fecha: " + date + " Radio: " + radio + " Hora: " + hour.hour1 + " Nombre: " + name + " ID: " + idLTG)
 
         data = {
             data: {
@@ -37,7 +37,8 @@ export const AddGoals = async (date, radio, hour, name) => {
                     field_date: date,
                     field_start_time: hour.hour1,
                     field_end_time: hour.hour2,
-                    field_radio_value: radio
+                    field_radio_value: radio,
+                    field_id_long_goals: idLTG
                 }
             }
         };
@@ -58,7 +59,7 @@ export const AddGoals = async (date, radio, hour, name) => {
                 }
             }
         };
-        
+
         return await axios.post(baseUrl + restPath2, data, config)
     }
 

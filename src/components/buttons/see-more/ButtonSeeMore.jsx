@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const ButtonSeeMore = () => {
+export const ButtonSeeMore = ({day}) => {
+
+
   return (
-    <button className="see-more">...</button>
+    <a href={`#${day}`} className="see-more">...</a>
   )
 }

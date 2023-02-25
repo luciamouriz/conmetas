@@ -14,7 +14,7 @@ export const CardDayOn = ({ day, month, year, goals }) => {
       <div className="data">
         {goals(day)}
       </div>
-     <ButtonSeeMore/>
+     <ButtonSeeMore day={day}/>
     </div>
 
 

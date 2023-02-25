@@ -1,22 +1,30 @@
-import React from 'react'
-import s from "../../assets/arrow-combo.svg"
+import arrow from "../../assets/arrow-combo.svg"
+import { GetLongGoals } from '../data/GetLongGoals'
 
 
-export const ComboBox = () => {
+export const ComboBox = ({ onChange }) => {
+
+    let data = GetLongGoals();
+
+    const handleChange = event => {
+        onChange(event.target.value)
+    }
 
 
     return (
-        <select className='combobox' style={{
+        <select onChange={handleChange} className='combobox' style={{
             WebkitAppearance: 'none',
             MozAppearance: 'none',
             appearance: 'none',
-            backgroundImage: `url(${s})`,
+            backgroundImage: `url(${arrow})`,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: '96%',
         }}>
-            <option className="option1" value="opcion1">-Seleccionar Objetivo a largo plazo -</option>
-            <option className="option1" value="opcion2">Opción 2</option>
-            <option className="option1" value="opcion3">Opción 3</option>
+            <option value="0">-Seleccionar Objetivo a largo plazo -</option>
+            {data.map((data) =>
+                <option value={data.attributes.drupal_internal__nid}>{data.attributes.field_description_long}</option>
+            )}
+
         </select>
     )
 }

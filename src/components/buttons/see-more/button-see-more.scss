@@ -1,6 +1,7 @@
 @use "../../../styles/config.scss" as conf;
 
 .see-more {
+    text-decoration: none;
     width: 100%;
     align-self: center;
     font-weight: 400;
@@ -8,7 +9,7 @@
     text-align: center;
     letter-spacing: 0.10em;
     cursor: pointer;
-    @include conf.hover-button;
+   
 }
 
 .see-more-disabled {
