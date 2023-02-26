@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+import { useState } from "react";
 import { GetLongGoals } from "../../data/GetLongGoals";
 import { GetShortGoals } from "../../data/GetShortGoals";
 import { CardDayActive } from "./CardDayActive";
@@ -22,8 +22,13 @@ export const CardDayList = ({ days, selectMonth, selectYear }) => {
    */
   const dataLongGoals = GetLongGoals();
   const dataShortGoals = GetShortGoals();
+  const [colorClass, setColorClass] = useState('');
 
- 
+  const generateColorClass = () => {
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    return randomColor;
+  };
+
   /**
    * Metodo que devolvera Metas a largo plazo o a corto
    * Nos devuelve el contenido GET, haciendo un filtrado anteriormente para obtener solo las fechas iguales 
@@ -43,7 +48,7 @@ export const CardDayList = ({ days, selectMonth, selectYear }) => {
     const combinedGoals = filteredLongGoals.map((goal1) => {
       return (
 
-        <p>{goal1.attributes.field_description_long}</p>
+        <p style={ `background-color:${generateColorClass()}`}>{goal1.attributes.field_description_long}</p>
       )
     })
 
@@ -51,7 +56,7 @@ export const CardDayList = ({ days, selectMonth, selectYear }) => {
     const combinedGoals2 = filteredShortGoals.map((goal2) => {
       return (
 
-        <p>{goal2.attributes.field_description}</p>
+        <p><p>{(goal2.attributes.field_start_time != null && goal2.attributes.field_end_time != null) ?  <span>{goal2.attributes.field_start_time} a {goal2.attributes.field_end_time}</span> : goal2.attributes.field_start_time }</p>{goal2.attributes.field_description}</p>
 
       )
     })
@@ -82,7 +87,6 @@ export const CardDayList = ({ days, selectMonth, selectYear }) => {
             }
 
           } else {
-
             //OFF los dias que no entran en el mes
             return (<div className="card-day-off-a">
               <div className="num-day">{day.day}</div>
@@ -92,6 +96,7 @@ export const CardDayList = ({ days, selectMonth, selectYear }) => {
         }
         )}
       </div>
+
       <div className="calendar-rectangle">
         <CardDayRectangle days={days} selectMonth={selectMonth} selectYear={selectYear} goals={getDataGoals} />
       </div>

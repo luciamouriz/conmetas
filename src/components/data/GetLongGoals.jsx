@@ -10,7 +10,7 @@ export const GetLongGoals = () => {
     useEffect(() => {
         axios.get('http://localhost:8080/install-dir/web/jsonapi/node/long_term_goals')
             .then(response => setGoals(response.data.data));
-    }, [goals]);
+    }, []);
 
  
     return goals;

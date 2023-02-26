@@ -21,8 +21,8 @@ export const ComboBox = ({ onChange }) => {
             backgroundPosition: '96%',
         }}>
             <option value="0">-Seleccionar Objetivo a largo plazo -</option>
-            {data.map((data) =>
-                <option value={data.attributes.drupal_internal__nid}>{data.attributes.field_description_long}</option>
+            {data.map((data, index) =>
+                <option key={index} value={data.attributes.drupal_internal__nid}>{data.attributes.field_description_long}</option>
             )}
 
         </select>
