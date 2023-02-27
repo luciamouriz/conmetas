@@ -15,6 +15,9 @@ export const ModalAddGoals = ({ day, month, year, back, close }) => {
     const [selectCombo, setSelectCombo] = useState('');
     const [checked, setChecked] = useState(true);
     const numMonth = (Number(month) + 1).toString().padStart(2, "0");
+    
+
+
 
     const handleInputHour1Change = (value) => {
         setInputHour1(value);
@@ -26,6 +29,7 @@ export const ModalAddGoals = ({ day, month, year, back, close }) => {
 
     const handleInputDescChange = (value) => {
         setInputDesc(value);
+        
     }
 
     const handleSelectComboChange = (value) => {
@@ -41,6 +45,8 @@ export const ModalAddGoals = ({ day, month, year, back, close }) => {
         }
     }
 
+    
+
     return (
 
         <div className="form">
@@ -55,11 +61,11 @@ export const ModalAddGoals = ({ day, month, year, back, close }) => {
                             <label>Hora &nbsp;</label>
                             <InputTime onChange={handleInputHour1Change} />
                             <span> a </span>
-                            <InputTime onChange={handleInputHour2Change} /> 
+                            <InputTime onChange={handleInputHour2Change} hour={{hour1: inputHour1, hour2: inputHour2}}/> 
                         </div>
                         <div>
                             <label>Descripción <span>*</span></label>
-                            <Input onChange={handleInputDescChange} />
+                            <Input onChange={handleInputDescChange}/>
                         </div>
                         <div>
                             <label>Depende de <span>*</span></label>

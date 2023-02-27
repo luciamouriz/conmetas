@@ -18,12 +18,8 @@
 
 }
 
-.option1{
-    font-family: var(--font-montserrat);
-    font-size: 16px;
-    box-shadow: 0 0 0 0 transparent;
-    box-sizing: initial;
-    &:hover{
-        background-color:red;
-    }
+.combobox-error {
+    outline: 3px solid red;
+
 }
+

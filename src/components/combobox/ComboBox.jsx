@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import arrow from "../../assets/arrow-combo.svg"
 import { GetLongGoals } from '../data/GetLongGoals'
 
@@ -5,14 +6,24 @@ import { GetLongGoals } from '../data/GetLongGoals'
 export const ComboBox = ({ onChange }) => {
 
     let data = GetLongGoals();
+    const comboRef = useRef(null)
+
 
     const handleChange = event => {
-        onChange(event.target.value)
+        onChange(comboRef.current.value)
     }
 
+    const handleClick = event => {
+
+        if (comboRef.current.value === "0") {
+            comboRef.current.classList.add('combobox-error')
+        } else {
+            comboRef.current.classList.remove('combobox-error')
+        }
+    }
 
     return (
-        <select onChange={handleChange} className='combobox' style={{
+        <select ref={comboRef} onClick={handleClick} onChange={handleChange} className='combobox' style={{
             WebkitAppearance: 'none',
             MozAppearance: 'none',
             appearance: 'none',
