@@ -52,17 +52,17 @@ export const ModalAddGoals = ({ day, month, year, back, close }) => {
                 <>
                     <div className="inputs-short-goals">
                         <div className="inputs-time-goals">
-                            <label>Hora </label>
+                            <label>Hora &nbsp;</label>
                             <InputTime onChange={handleInputHour1Change} />
                             <span> a </span>
                             <InputTime onChange={handleInputHour2Change} /> 
                         </div>
                         <div>
-                            <label>Descripción </label>
+                            <label>Descripción <span>*</span></label>
                             <Input onChange={handleInputDescChange} />
                         </div>
                         <div>
-                            <label>Depende de </label>
+                            <label>Depende de <span>*</span></label>
                             <ComboBox onChange={handleSelectComboChange}/>
                         </div>
                     </div>
@@ -73,7 +73,7 @@ export const ModalAddGoals = ({ day, month, year, back, close }) => {
                 </>
                 : <>
                     <div>
-                        <label>Nombre </label>
+                        <label>Nombre <span>*</span></label>
                         <Input onChange={handleInputDescChange} />
                     </div>
                     <div className="buttons-back-accept">

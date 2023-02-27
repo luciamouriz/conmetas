@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { GetGoals } from "../../data/GetGoals";
 import { GetLongGoals } from "../../data/GetLongGoals";
 import { GetShortGoals } from "../../data/GetShortGoals";
 import { CardDayActive } from "./CardDayActive";
@@ -16,18 +17,14 @@ export const CardDayList = ({ days, selectMonth, selectYear }) => {
   let dayToday = today.getDate();
   let monthToday = today.getMonth();
 
+
   /**
    * Datos que obtenemos del GET Drupal con AXIOS
    * Metas a corto y largo plazo
    */
   const dataLongGoals = GetLongGoals();
-  const dataShortGoals = GetShortGoals();
-  const [colorClass, setColorClass] = useState('');
+  const dataGoals = GetGoals();
 
-  const generateColorClass = () => {
-    const randomColor = Math.floor(Math.random()*16777215).toString(16);
-    return randomColor;
-  };
 
   /**
    * Metodo que devolvera Metas a largo plazo o a corto
@@ -38,31 +35,36 @@ export const CardDayList = ({ days, selectMonth, selectYear }) => {
     const numMonth = (Number(selectMonth) + 1).toString().padStart(2, "0");
     const numDay = day.toString().padStart(2, "0");
 
+    const filteredShortGoals = dataGoals.filter((goal) => {
+      return selectYear + "-" + numMonth + "-" + numDay === goal.field_date;
+    });
     const filteredLongGoals = dataLongGoals.filter((goal) => {
       return selectYear + "-" + numMonth + "-" + numDay === goal.attributes.field_date_long;
     });
-    const filteredShortGoals = dataShortGoals.filter((goal) => {
-      return selectYear + "-" + numMonth + "-" + numDay === goal.attributes.field_date;
-    });
 
-    const combinedGoals = filteredLongGoals.map((goal1) => {
+    const combinedGoals = filteredShortGoals.map((goal1) => {
       return (
+        <>
+          {goal1.nid === goal1.field_ref_long_terms_goals &&
+            <>
+              <p className="color-short-goals" style={{ backgroundColor: goal1.field_color }}>{
+                goal1.field_start_time != "" && goal1.field_end_time != "" ?
+                  `${goal1.field_start_time} a ${goal1.field_end_time}` : goal1.field_start_time}
+                <span>{goal1.field_description.length > 17 ? goal1.field_description.substring(0,20)+"..." : goal1.field_description.substring(0,20)}</span></p>
+            </>
+          }
+        </>
+      )
+    })
 
-        <p style={ `background-color:${generateColorClass()}`}>{goal1.attributes.field_description_long}</p>
+    const combinedGoals2 = filteredLongGoals.map((goal1) => {
+      return (
+        <p style={{ backgroundColor: goal1.attributes.field_color }}>{goal1.attributes.field_description_long}</p>
       )
     })
 
 
-    const combinedGoals2 = filteredShortGoals.map((goal2) => {
-      return (
-
-        <p><p>{(goal2.attributes.field_start_time != null && goal2.attributes.field_end_time != null) ?  <span>{goal2.attributes.field_start_time} a {goal2.attributes.field_end_time}</span> : goal2.attributes.field_start_time }</p>{goal2.attributes.field_description}</p>
-
-      )
-    })
-
-
-    return combinedGoals.concat(combinedGoals2);
+    return combinedGoals.concat(combinedGoals2)
 
   };
 

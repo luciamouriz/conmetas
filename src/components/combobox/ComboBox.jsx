@@ -22,7 +22,7 @@ export const ComboBox = ({ onChange }) => {
         }}>
             <option value="0">-Seleccionar Objetivo a largo plazo -</option>
             {data.map((data, index) =>
-                <option key={index} value={data.attributes.drupal_internal__nid}>{data.attributes.field_description_long}</option>
+                <option key={index} value={data.id}>{data.attributes.field_description_long}</option>
             )}
 
         </select>

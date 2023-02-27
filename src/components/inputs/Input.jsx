@@ -1,13 +1,15 @@
+import { useRef } from "react";
 
 export const Input = ({ onChange }) => {
 
+    const refInput = useRef(null)
 
     const handleChange = event => {
         onChange(event.target.value)
     }
 
     return (
-        <input className="input" type="text" onChange={handleChange} />
+        <input ref={refInput} className="input" type="text" onChange={handleChange} />
 
     )
 }

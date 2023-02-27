@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 
-export const AddGoals = async (date, radio, hour, name, idLTG) => {
+export const AddGoals = async (date, radio, hour, name, idLTG, color) => {
 
 
     const baseUrl = 'http://localhost:8080/install-dir/web';
@@ -37,8 +37,15 @@ export const AddGoals = async (date, radio, hour, name, idLTG) => {
                     field_date: date,
                     field_start_time: hour.hour1,
                     field_end_time: hour.hour2,
-                    field_radio_value: radio,
-                    field_id_long_goals: idLTG
+                    field_radio_value: radio
+                },
+                relationships: {
+                    field_ref_long_terms_goals: {
+                        data: {
+                            type: "node--long_term_goals",
+                            id: idLTG
+                        }
+                    }
                 }
             }
         };
@@ -56,6 +63,7 @@ export const AddGoals = async (date, radio, hour, name, idLTG) => {
                     title: date,
                     field_date_long: date,
                     field_description_long: name,
+                    field_color: color
                 }
             }
         };
