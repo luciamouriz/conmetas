@@ -26,11 +26,10 @@ export const ButtonAdd = ({ day, month, year }) => {
       {showComponent &&
         <>
           <div className="bg-block"></div>
-          <div className="add-wrapper">
-            <Modal day={day} month={month} year={year} close={handleClickClose}>
-              <ModalAdd day={day} month={month} year={year} close={handleClickClose} />
+            <Modal day={day} month={month} year={year} classChildren={"add-wrapper"} close={handleClickClose}> {/* close: Cerramos ventana modal */}
+              <ModalAdd day={day} month={month} year={year} closeAccept={handleClickClose}/> {/* closeAccept: Cerramos ventana modal despues de aceptar */}
             </Modal>
-          </div>
+         
         </>
       }
     </>

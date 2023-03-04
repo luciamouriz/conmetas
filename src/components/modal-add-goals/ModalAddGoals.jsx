@@ -6,7 +6,7 @@ import { Input } from "../inputs/Input"
 import { InputTime } from "../inputs/InputTime"
 import { Radio } from "../inputs/Radio"
 
-export const ModalAddGoals = ({ day, month, year, back, close }) => {
+export const ModalAddGoals = ({ day, month, year, back, closeAccept }) => {
 
     const [inputHour1, setInputHour1] = useState('');
     const [inputHour2, setInputHour2] = useState('');
@@ -84,7 +84,7 @@ export const ModalAddGoals = ({ day, month, year, back, close }) => {
                     </div>
                     <div className="buttons-back-accept">
                         <ButtonBack back={back} />
-                        <ButtonAccept date={year + "-" + numMonth + "-" + day.toString().padStart(2, "0")} radio={inputRadio} name={inputDesc} close={close}/>
+                        <ButtonAccept date={year + "-" + numMonth + "-" + day.toString().padStart(2, "0")} radio={inputRadio} name={inputDesc} closeAccept={closeAccept}/>
                     </div>
                 </>}
         </div>
