@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
+import { useContext } from 'react';
 import { ModalAddGoals } from '../modal-add-goals/ModalAddGoals';
+import { MyContext, MyProvider } from '../MyProvider';
 
-export const ModalAdd = ({ day, month, year, closeAccept }) => {
+export const ModalAdd = ({ closeAccept }) => {
 
 
     const [showComponent, setShowComponent] = useState(false);
-
+    const { day, month, year } = useContext(MyContext);
 
     const handleshowAddGoals = event => {
         setShowComponent(true)
@@ -24,7 +26,9 @@ export const ModalAdd = ({ day, month, year, closeAccept }) => {
                 <button>ACTIVIDAD</button>
                 <button>PROYECTO</button>
             </div>}
-            {showComponent && <ModalAddGoals day={day} month={month} year={year} back={handleshowAdd} closeAccept={closeAccept}/>}
+            {showComponent && <MyProvider day={day} month={month} year={year}>
+                <ModalAddGoals back={handleshowAdd} closeAccept={closeAccept} />
+            </MyProvider>}
 
         </div>
 

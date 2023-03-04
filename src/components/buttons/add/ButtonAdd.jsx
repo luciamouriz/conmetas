@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { ModalAdd } from "../../modal-add/ModalAdd";
 import { Modal } from "../../modal/Modal";
+import { MyContext, MyProvider } from "../../MyProvider";
 
 
 export const ButtonAdd = ({ day, month, year }) => {
@@ -26,10 +27,11 @@ export const ButtonAdd = ({ day, month, year }) => {
       {showComponent &&
         <>
           <div className="bg-block"></div>
-            <Modal day={day} month={month} year={year} classChildren={"add-wrapper"} close={handleClickClose}> {/* close: Cerramos ventana modal */}
-              <ModalAdd day={day} month={month} year={year} closeAccept={handleClickClose}/> {/* closeAccept: Cerramos ventana modal despues de aceptar */}
+          <MyProvider day={day} month={month} year={year}>
+            <Modal classChildren={"add-wrapper"} close={handleClickClose}> {/* close: Cerramos ventana modal */}
+              <ModalAdd closeAccept={handleClickClose} /> {/* closeAccept: Cerramos ventana modal despues de aceptar */}
             </Modal>
-         
+          </MyProvider>
         </>
       }
     </>

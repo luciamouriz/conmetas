@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ButtonSeeMore = ({day}) => {
+export const ButtonSeeMore = ({ day }) => {
 
 
   return (

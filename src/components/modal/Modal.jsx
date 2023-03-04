@@ -1,9 +1,10 @@
+import { useContext } from "react";
 import iconadd from "../../assets/add.svg";
-
-export const Modal = ({ day, month, year,  children, close }) => {
+import { MyContext } from "../MyProvider";
+export const Modal = ({ children, close }) => {
 
     const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-
+    const { day, month, year } = useContext(MyContext);
 
     return (
         <div className="modal-wrapper">

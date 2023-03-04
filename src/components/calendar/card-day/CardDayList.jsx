@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { GetGoals } from "../../data/GetGoals";
 import { GetLongGoals } from "../../data/GetLongGoals";
-import { GetShortGoals } from "../../data/GetShortGoals";
 import { CardDayActive } from "./CardDayActive";
 import { CardDayDisabled } from "./CardDayDisabled";
 import { CardDayOn } from "./CardDayOn";

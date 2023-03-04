@@ -1,3 +1,4 @@
+import { useContext } from "react"
 import { useState } from "react"
 import { ButtonAccept } from "../buttons/accept/ButtonAccept"
 import { ButtonBack } from "../buttons/back/ButtonBack"
@@ -5,8 +6,9 @@ import { ComboBox } from "../combobox/ComboBox"
 import { Input } from "../inputs/Input"
 import { InputTime } from "../inputs/InputTime"
 import { Radio } from "../inputs/Radio"
+import { MyContext } from '../MyProvider'
 
-export const ModalAddGoals = ({ day, month, year, back, closeAccept }) => {
+export const ModalAddGoals = ({ back, closeAccept }) => {
 
     const [inputHour1, setInputHour1] = useState('');
     const [inputHour2, setInputHour2] = useState('');
@@ -14,10 +16,8 @@ export const ModalAddGoals = ({ day, month, year, back, closeAccept }) => {
     const [inputRadio, setInputRadio] = useState('l');
     const [selectCombo, setSelectCombo] = useState('');
     const [checked, setChecked] = useState(true);
+    const { day, month, year } = useContext(MyContext);
     const numMonth = (Number(month) + 1).toString().padStart(2, "0");
-    
-
-
 
     const handleInputHour1Change = (value) => {
         setInputHour1(value);
@@ -29,7 +29,7 @@ export const ModalAddGoals = ({ day, month, year, back, closeAccept }) => {
 
     const handleInputDescChange = (value) => {
         setInputDesc(value);
-        
+
     }
 
     const handleSelectComboChange = (value) => {
@@ -45,7 +45,7 @@ export const ModalAddGoals = ({ day, month, year, back, closeAccept }) => {
         }
     }
 
-    
+
 
     return (
 
@@ -61,20 +61,20 @@ export const ModalAddGoals = ({ day, month, year, back, closeAccept }) => {
                             <label>Hora &nbsp;</label>
                             <InputTime onChange={handleInputHour1Change} />
                             <span> a </span>
-                            <InputTime onChange={handleInputHour2Change} hour={{hour1: inputHour1, hour2: inputHour2}}/> 
+                            <InputTime onChange={handleInputHour2Change} hour={{ hour1: inputHour1, hour2: inputHour2 }} />
                         </div>
                         <div>
                             <label>Descripción <span>*</span></label>
-                            <Input onChange={handleInputDescChange}/>
+                            <Input onChange={handleInputDescChange} />
                         </div>
                         <div>
                             <label>Depende de <span>*</span></label>
-                            <ComboBox onChange={handleSelectComboChange}/>
+                            <ComboBox onChange={handleSelectComboChange} />
                         </div>
                     </div>
                     <div className="buttons-back-accept">
                         <ButtonBack back={back} />
-                        <ButtonAccept date={year + "-" + numMonth + "-" + day.toString().padStart(2, "0")} radio={inputRadio} hour={{hour1: inputHour1, hour2: inputHour2}} name={inputDesc} idLTG={selectCombo} close={close}/>
+                        <ButtonAccept date={year + "-" + numMonth + "-" + day.toString().padStart(2, "0")} radio={inputRadio} hour={{ hour1: inputHour1, hour2: inputHour2 }} name={inputDesc} idLTG={selectCombo} closeAccept={closeAccept} />
                     </div>
                 </>
                 : <>
@@ -84,7 +84,7 @@ export const ModalAddGoals = ({ day, month, year, back, closeAccept }) => {
                     </div>
                     <div className="buttons-back-accept">
                         <ButtonBack back={back} />
-                        <ButtonAccept date={year + "-" + numMonth + "-" + day.toString().padStart(2, "0")} radio={inputRadio} name={inputDesc} closeAccept={closeAccept}/>
+                        <ButtonAccept date={year + "-" + numMonth + "-" + day.toString().padStart(2, "0")} radio={inputRadio} name={inputDesc} closeAccept={closeAccept} />
                     </div>
                 </>}
         </div>
