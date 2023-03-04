@@ -10,7 +10,7 @@ export const GetGoals = () => {
     useEffect(() => {
         axios.get('http://localhost:8080/install-dir/web/goals')
             .then(response => setGoals(response.data));
-    }, []);
+    }, [goals]);
 
  
     return goals;

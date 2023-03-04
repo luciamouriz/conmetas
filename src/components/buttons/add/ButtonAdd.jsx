@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { ModalCreate } from "../../modal-create/ModalCreate";
+import { ModalAdd } from "../../modal-add/ModalAdd";
+import { Modal } from "../../modal/Modal";
 
 
 export const ButtonAdd = ({ day, month, year }) => {
@@ -23,7 +24,14 @@ export const ButtonAdd = ({ day, month, year }) => {
     <>
       <button className="button-add" onClick={handleClickAdd}>+</button>
       {showComponent &&
-        <ModalCreate day={day} month={month} year={year} close={handleClickClose}/>
+        <>
+          <div className="bg-block"></div>
+          <div className="add-wrapper">
+            <Modal day={day} month={month} year={year} close={handleClickClose}>
+              <ModalAdd day={day} month={month} year={year} close={handleClickClose} />
+            </Modal>
+          </div>
+        </>
       }
     </>
   )

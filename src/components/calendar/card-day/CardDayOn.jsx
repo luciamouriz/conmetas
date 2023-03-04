@@ -4,8 +4,7 @@ import { ButtonSeeMore } from "../../buttons/see-more/ButtonSeeMore";
 
 export const CardDayOn = ({ day, month, year, goals }) => {
 
-
-  
+ 
   return (
 
     <div className="card-day-on">
@@ -14,7 +13,7 @@ export const CardDayOn = ({ day, month, year, goals }) => {
       <div className="data">
         {goals(day)}
       </div>
-     <ButtonSeeMore day={day}/>
+      <ButtonSeeMore day={day} />
     </div>
 
 

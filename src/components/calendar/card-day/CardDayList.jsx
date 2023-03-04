@@ -1,4 +1,5 @@
 
+import { useEffect } from "react";
 import { useState } from "react";
 import { GetGoals } from "../../data/GetGoals";
 import { GetLongGoals } from "../../data/GetLongGoals";
@@ -17,14 +18,12 @@ export const CardDayList = ({ days, selectMonth, selectYear }) => {
   let dayToday = today.getDate();
   let monthToday = today.getMonth();
 
-
   /**
    * Datos que obtenemos del GET Drupal con AXIOS
    * Metas a corto y largo plazo
    */
   const dataLongGoals = GetLongGoals();
   const dataGoals = GetGoals();
-
 
   /**
    * Metodo que devolvera Metas a largo plazo o a corto

@@ -4,7 +4,7 @@ import randomcolor from 'randomcolor';
 
 export const ButtonAccept = ({ date, radio, hour, name, idLTG, close }) => {
 
-    const handleAddGoals = () => {
+    const handleAddGoals = async () => {
 
         if (radio == "l" && name == "") {
             return
@@ -20,7 +20,9 @@ export const ButtonAccept = ({ date, radio, hour, name, idLTG, close }) => {
             luminosity: 'light',
             hue: 'random'
         });
-        AddGoals(date, radio, hour, name, idLTG, randomColor)
+
+        
+        await AddGoals(date, radio, hour, name, idLTG, randomColor)
         close() //Al dar aceptar se cerrara la ventana
 
     }
